@@ -31,6 +31,8 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
 }
 
 img {
@@ -41,7 +43,10 @@ img {
 body {
     font-family: 'Nunito Sans',sans-serif;
     background-color:var(--main-background-color);
-    /* overflow-x:hidden; */
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x:hidden;
 }
 
 .LogMessage{

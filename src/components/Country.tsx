@@ -1,47 +1,17 @@
 import React from "react";
-import { useState, useEffect, useContext } from "react";
-import { Link, useParams } from "react-router-dom";
-import { DataFileContext } from "../context/DataContext";
+
 import "./country.css";
+import { Link } from "react-router-dom";
+import useDisplayCountry from "../hooks/useDisplayCountry";
 
 const Country = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [countryBorders, setCountryBorders] = useState<string[]>([]);
-  const [error, setError] = useState("");
-
-  const { countriesData } = useContext(DataFileContext);
-
-  const { countryName } = useParams();
-
-  useEffect(() => {
-    if (countryName) {
-      setError("");
-      setCountryBorders([]);
-    } else {
-      setError("Record not available!!");
-    }
-  }, [countryName]);
-
-  const filterCountries = countriesData.filter(
-    (country) => country.name === countryName
-  );
-
-  useEffect(() => {
-    if (filterCountries.length > 0) {
-      //Load the Border Countries
-      const arrCountryBorders = filterCountries[0].borders || [];
-
-      for (let i = 0; i < arrCountryBorders.length; i++) {
-        let borderName = countriesData.filter(
-          (country) => country.alpha3Code === arrCountryBorders[i]
-        )[0].name;
-
-        if (!countryBorders.includes(borderName) && borderName) {
-          setCountryBorders((prev) => [...prev, borderName]);
-        }
-      }
-    }
-  }, [countryBorders, countriesData, filterCountries]);
+ const {
+   isLoading,
+   setIsLoading,
+   filterCountries,
+   handleSelectBorder,
+   countryBorders, error,
+ } = useDisplayCountry();
 
   return (
     <>
@@ -52,7 +22,6 @@ const Country = () => {
       )}
 
       {isLoading && <p className="LoadMessage">Loading......</p>}
-      {/* {!error&&filterCountries.length===0&&!isLoading&&<p className='LogMsg'>{'No Record Found .....!!! '}</p>} */}
       {isLoading && filterCountries.length > 0 ? setIsLoading(false) : error}
       <div className="mainCountryContainer">
         {!error && (
@@ -145,16 +114,17 @@ const Country = () => {
                       <div className="country_borders">
                         <h3>Border Countries: </h3>
                         <div className="borders">
+                      
                           {countryBorders &&
-                            countryBorders.map((border, item) => (
-                              <Link
-                                to={`/${border}`}
-                                key={item}
-                                className="borderbtn"
-                              >
-                                {border}
-                              </Link>
-                            ))}
+                            countryBorders.map((border, item) => {
+                              return (
+                                <span onClick={() => handleSelectBorder(border)} className="borderbtn">
+                                  {border.length > 12
+                                    ? border.slice(0, 12) + "..."
+                                    : border}
+                                </span>
+                              );
+                            })}
                         </div>
                       </div>
                     </div>
