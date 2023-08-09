@@ -7,6 +7,7 @@ import { nightModeContext } from "../context/ThemeContext";
 const Header = () => {
   const { dark, setDark } = useContext(nightModeContext);
   const [error, setError] = useState("");
+  const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
     try {
@@ -16,7 +17,6 @@ const Header = () => {
         setDark(JSON.parse(localVar));
       }
     } catch (err: any) {
-      // console.log(err);
       setError("Error Saving To Local Storage!");
     }
   }, [setDark]);
@@ -27,14 +27,33 @@ const Header = () => {
     try {
       localStorage.setItem("Mode", JSON.stringify(dark));
     } catch (err: any) {
-      // console.log(err);
       setError("Error Saving To Local Storage!");
     }
   }, [dark]);
 
+ useEffect(() => {
+   const handleScroll = () => {
+     const scrollPosition =
+       window.scrollY ||
+       document.documentElement.scrollTop ||
+       document.body.scrollTop;
+     if (scrollPosition > 90) {
+       setIsSticky(true);
+     } else {
+       setIsSticky(false);
+     }
+   };
+
+   window.addEventListener("scroll", handleScroll);
+
+   return () => {
+     window.removeEventListener("scroll", handleScroll);
+   };
+ }, []);  
+
   return (
     <>
-      <section className="head_section">
+      <section className={`head_section ${isSticky && 'sticky-header'}`}>
         <div>
           <h1>Where in the World?</h1>
         </div>
@@ -43,7 +62,6 @@ const Header = () => {
           {dark ? (
             <span className="icon moon-fill">
               <IoMdMoon />
-            
             </span>
           ) : (
             <span className="icon moon-outline">
