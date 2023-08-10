@@ -45,7 +45,7 @@ body {
     font-family: 'Nunito Sans',sans-serif;
     background-color:var(--main-background-color);
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     overflow-y: auto;
     overflow-x:hidden;
 }
