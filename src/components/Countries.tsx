@@ -23,7 +23,7 @@ const Countries = () => {
         try {
           const response = await fetch("https://restcountries.com/v2/all");
           if (!response.ok)
-            throw new Error("Error!!...Connection Not Established!");
+            throw new Error("Connection Not Established!");
           const data = await response.json();
           setCountriesData(data);
           setError("");
@@ -60,7 +60,7 @@ const Countries = () => {
       {isLoading && <p className="LoadingMessage">Loading......</p>}
       {isLoading && filterCountries.length > 0 ? setIsLoading(false) : error}
       {!isLoading && filterCountries.length === 0 && (
-        <p className="LogMessage">{"No Record Found .....!!! "}</p>
+        <p className="LogMessage">{"Not Found"}</p>
       )}
 
       <div className="mainContainer">
