@@ -1,6 +1,3 @@
-/* body{
-    overflow-x: hidden;
-} */
 .mainCountryContainer {
   width: 100vw;
   height: 100vh;
@@ -20,7 +17,6 @@
   font-family: inherit;
   font-weight: 700;
   position: absolute;
-
   z-index: 6;
   left: 160px;
   top: 120px;
@@ -57,15 +53,18 @@
 }
 .countryflag {
   margin-bottom: 44px;
+
 }
 .country_img {
-  width: 100%;
+  width: 650px;
   height: 230px;
   margin-top:20px;
+  cursor: pointer;
 }
 .countryDetailsContainer .country_bloc1 {
   margin-top: 16px;
   color: var(--main-country-detail-text);
+
 }
 
 .country_bloc2,
@@ -194,7 +193,7 @@ article .county_specs div span {
   }
 
   .country_group2 {
-    padding-left: 10px;
+    padding-left: 120.06px;
     /* margin-top:10px; */
   }
 
@@ -347,7 +346,7 @@ article .county_specs div span {
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1260px) {
   .head_section {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
   }
@@ -423,11 +422,14 @@ article .county_specs div span {
     flex-wrap: wrap;
   }
 
-  article .county_specs div p,
-  article .county_specs div span,
+  article .county_specs  p,
+  article .county_specs  span,
   .country_borders h3,
   .country_borders h3 span {
     font-size: 16px;
     line-height: 32px;
+  }
+  .countryflag{
+    width: 2px;
   }
 }

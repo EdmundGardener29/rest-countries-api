@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import Search from "../components/Search";
 import { DataFileContext } from "../context/DataContext";
 
@@ -9,8 +9,13 @@ const Countries = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
   const [region, setRegion] = useState<string>("Filter by Region");
-
   const { countriesData, setCountriesData } = useContext(DataFileContext);
+  const navigate = useNavigate()
+
+  const handleSelectCountry = (name: string) => {
+    console.log(name)
+    navigate(`${name}`)
+  }
 
   useEffect(() => {
     if (!countriesData) {
@@ -66,28 +71,28 @@ const Countries = () => {
             const { numericCode, population, region, capital } = country;
 
             return (
-              <article key={numericCode}>
-                <img
-                  className="imageflag"
-                  src={flag.toString()}
-                  alt={name.toString()}
-                />
-                <div className="countryInfo">
-                  <Link to={`/${name}`} className="linkText">
+              <article onClick={() => handleSelectCountry(name)} key={numericCode}>
+                  {/* <Link to={`/${name}`} className="country-link"> */}
+                  <img
+                    className="imageflag"
+                    src={flag.toString()}
+                    alt={name.toString()}
+                  />
+                  <div className="countryInfo">
                     <h3>{name}</h3>
-                  </Link>
-                  <h4>
-                    Population:{" "}
-                    <span>{population.toLocaleString("en-US")}</span>
-                  </h4>
-                  <h4>
-                    Region: <span>{region}</span>{" "}
-                  </h4>
-                  <h4>
-                    Capital: <span>{capital}</span>
-                  </h4>
-                </div>
-              </article>
+                    <h4>
+                      Population:{" "}
+                      <span>{population.toLocaleString("en-US")}</span>
+                    </h4>
+                    <h4>
+                      Region: <span>{region}</span>{" "}
+                    </h4>
+                    <h4>
+                      Capital: <span>{capital}</span>
+                    </h4>
+                  </div>
+              {/* </Link> */}
+                </article>
             );
           })}
         </section>

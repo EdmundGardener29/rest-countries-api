@@ -52,10 +52,7 @@ const CountryBorders = () => {
 
 
         const {name,nativeName,flags,population,region,capital,subregion,topLevelDomain,borders,currencies,languages}=countborder;
-        // const flag=countborder.flags.png
-        // const fname=countborder.name;
-
-
+       
   return (
         <>
             

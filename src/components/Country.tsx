@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./country.css";
 import { Link } from "react-router-dom";
 import useDisplayCountry from "../hooks/useDisplayCountry";
