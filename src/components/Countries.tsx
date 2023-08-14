@@ -21,7 +21,7 @@ const Countries = () => {
     if (!countriesData) {
       const FetchAllCountries = async () => {
         try {
-          const response = await fetch("https://restcountries.com/v2/all");
+          const response = await fetch("https://restcountries.com/v3/all");
           if (!response.ok)
             throw new Error("Connection Not Established!");
           const data = await response.json();

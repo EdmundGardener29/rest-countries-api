@@ -1,15 +1,17 @@
 # Rest Countries API Project
 
 This project is a web application that utilizes the Rest Countries API to fetch and display information about various countries. It is built using Create React App, a popular tool for creating React applications.
+The Rest Countries API is a public API that provides information about countries around the world, including details like country name, population, area, languages spoken, currencies, and more
 
 ## Features
 
 - Display a list of countries with their flags and basic information
 - Filter countries by region
-- Search for a specific country by name
+- Search functionality for countries
 - View detailed information about a selected country
 - Dark mode support for better user experience
 - Responsive design for mobile and desktop devices
+- Country Details: When a user selects a country from the search results, the app should display detailed information about that country, including its name, population, area, languages spoken, currencies used, etc.
 
 ## Technologies Used
 
@@ -24,17 +26,11 @@ This project is a web application that utilizes the Rest Countries API to fetch 
 
 To run this application locally, follow these steps:
 
-1. Clone the repository to your local machine.
-2. Navigate to the project directory.
-3. Install the dependencies.
-4. Start the development server.
-5. Open your web browser and visit `[http://localhost:3000](https://amoateyrestcountriesapi.netlify.app/)` to see the application.
+1. Open your web browser and visit `[http://localhost:3000](https://rest-countries-api-pink-delta.vercel.app/)` to see the application.
 
 ## Configuration
 
-If you want to modify the configuration of the application, you can update the following files:
 
-- `src/config.js`: Contains configuration variables such as the API base URL.
 
 ## Usage
 

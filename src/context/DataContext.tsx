@@ -16,7 +16,7 @@ const url='https://restcountries.com/v2/all';
           const fetchAllCountriesData=async()=>{
             try {
                 const response=await fetch(url);
-                if(!response.ok) throw new Error('Error!!...Connection Not Established!')
+                if(!response.ok) throw new Error('Connection Not Established!')
                 const data =await response.json();
                 setCountriesData(data);
                 
