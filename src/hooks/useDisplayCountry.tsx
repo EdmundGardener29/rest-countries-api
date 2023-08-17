@@ -20,7 +20,7 @@ const useDisplayCountry = () => {
       setError("");
       setCountryBorders([]);
     } else {
-      setError("Record not available!!");
+      setError("Record not found");
     }
   }, [countryName]);
 

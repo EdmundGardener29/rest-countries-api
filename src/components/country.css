@@ -83,18 +83,18 @@
   background-color: var(--main-background-color);
 }
 
-article .county_specs div p {
+article .county_specs  p {
   margin: 10px 0;
   font-weight: 600;
   font-size: 16px;
   letter-spacing: 1px;
 }
 
-article .county_specs div span {
+article .county_specs span {
   font-weight: 300;
   font-size: 16px;
   letter-spacing: 1px;
-  /* color: #fff; */
+ color: var(--main-country-detail-text);
 }
 
 .country_borders h3 {
