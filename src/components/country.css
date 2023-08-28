@@ -143,7 +143,14 @@ article .county_specs span {
   align-items: center;
   justify-content: center;
 }
-
+@media (min-width: 375px){
+  .country_img {
+        width: 326px;
+        height: 228px;
+        margin-top: 20px;
+        cursor: pointer;
+}
+}
 
 @media (min-width: 768px) {
   .backbtn {

@@ -21,7 +21,7 @@ const Country = () => {
         </Link>
       )}
 
-      {isLoading && <p className="LoadMessage">Loading......</p>}
+      {isLoading && <p className="LoadMessage">Loading...</p>}
       {isLoading && filterCountries.length > 0 ? setIsLoading(false) : error}
       <div className="mainCountryContainer">
         {!error && (

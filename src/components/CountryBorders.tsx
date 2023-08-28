@@ -70,7 +70,7 @@ const CountryBorders = () => {
       {isLoading && !error && <p className="LoadMsg">Loading......</p>}
       {error && !isLoading && <p className="ErrorLog">{error}</p>}
       {!error && Object.keys(countborder).length === 0 && !isLoading && (
-        <p className="LogMsg">{"No Record Found .....!!! "}</p>
+        <p className="LogMsg">{"No Record Found ! "}</p>
       )}
       {
         <div className="count_bg">
